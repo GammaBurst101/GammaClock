@@ -39,6 +39,7 @@ public class AlarmClock
         timeDisplay = new JTextField(10);
         timeDisplay.setEditable(false);
         timeDisplay.setFont(new Font("Arial", Font.PLAIN, 48));
+        timeDisplay.setHorizontalAlignment(JTextField.CENTER);
 
         //input boxes for alarm time
         alarmHour = new JTextField("HH");  
