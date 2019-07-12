@@ -21,7 +21,7 @@ public class AlarmClock
     {
         //Setting JFrame
         frame = new JFrame ("Clock");
-        frame.setSize(500, 400);
+        frame.setSize(500, 150);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
         frame.setLocationRelativeTo(null);
