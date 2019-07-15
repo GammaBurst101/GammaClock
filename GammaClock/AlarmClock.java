@@ -5,7 +5,7 @@ import java.util.Calendar;
 import javax.sound.sampled.*;
 import java.io.*;
 
-public class AlarmClock
+public class AlarmClock 
 {
     private JFrame frame;
     private JTextField timeDisplay, alarmHour, alarmMin;
@@ -42,8 +42,11 @@ public class AlarmClock
         timeDisplay.setHorizontalAlignment(JTextField.CENTER);
 
         //input boxes for alarm time
-        alarmHour = new JTextField("HH");  
+        alarmHour = new JTextField("HH");
+        InputFieldListener inputFieldListener = new InputFieldListener();
+        alarmHour.addMouseListener(inputFieldListener);
         alarmMin = new JTextField("MM");  
+        alarmMin.addMouseListener(inputFieldListener);
 
         //set/stop alarm button
         btn = new JButton("Set Alarm");
@@ -129,5 +132,19 @@ public class AlarmClock
                 e.printStackTrace();
             }
         }
+    }
+    
+    class InputFieldListener implements MouseListener {
+        public void mouseClicked(MouseEvent e) {
+            ((JTextField)e.getSource()).setText("");
+        }
+        
+        public void mouseExited(MouseEvent e) {}
+        
+        public void mouseEntered(MouseEvent e) {}
+        
+        public void mouseReleased(MouseEvent e) {}
+        
+        public void mousePressed(MouseEvent e) {}
     }
 }
