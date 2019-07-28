@@ -21,7 +21,7 @@ public class AlarmClock
     {
         //Setting JFrame
         frame = new JFrame ("Clock");
-        frame.setSize(500, 150);
+        frame.setSize(500, 140);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
         frame.setLocationRelativeTo(null);
@@ -50,6 +50,7 @@ public class AlarmClock
 
         //set/stop alarm button
         btn = new JButton("Set Alarm");
+        btn.setFocusPainted(false);
         btn.addActionListener(new ActionListener()
             {
                 public void actionPerformed(ActionEvent e)
@@ -87,6 +88,7 @@ public class AlarmClock
             });
 
         //Add components
+        
         panel.add(timeDisplay);
         panel.add(txtL);
         panel.add(alarmHour);
