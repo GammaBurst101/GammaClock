@@ -43,9 +43,11 @@ public class AlarmClock
 
         //input boxes for alarm time
         alarmHour = new JTextField("HH");
+        alarmHour.setMargin(new Insets(2, 2, 2, 2));
         InputFieldListener inputFieldListener = new InputFieldListener();
         alarmHour.addMouseListener(inputFieldListener);
         alarmMin = new JTextField("MM");  
+        alarmMin.setMargin(new Insets(2, 2, 2, 2));
         alarmMin.addMouseListener(inputFieldListener);
 
         //set/stop alarm button
