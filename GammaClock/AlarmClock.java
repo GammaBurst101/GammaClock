@@ -4,6 +4,7 @@ import java.awt.event.*;
 import java.util.Calendar;
 import javax.sound.sampled.*;
 import java.io.*;
+import javax.swing.border.Border;
 
 public class AlarmClock 
 {
@@ -16,7 +17,7 @@ public class AlarmClock
     private Timer time, alarmChecker;
     private static boolean alarmRung = false;
     private AlarmSystem alarmSystem;
-
+    Border border = BorderFactory.createLineBorder(new Color(37, 204, 247), 5);
     public AlarmClock()
     {
         //Setting JFrame
@@ -34,24 +35,34 @@ public class AlarmClock
         //background panel
         panel = new JPanel();
         panel.setLayout(new FlowLayout());
-
+        panel.setBackground(new Color(47, 214, 255));
+        
         //display for current time
         timeDisplay = new JTextField(10);
+        timeDisplay.setBackground(new Color(37, 204, 247));
         timeDisplay.setEditable(false);
         timeDisplay.setFont(new Font("Arial", Font.PLAIN, 48));
         timeDisplay.setHorizontalAlignment(JTextField.CENTER);
+        timeDisplay.setBorder(border);
 
         //input boxes for alarm time
+        InputFieldListener inputFieldListener = new InputFieldListener();
+        
         alarmHour = new JTextField("HH");
         alarmHour.setMargin(new Insets(2, 2, 2, 2));
-        InputFieldListener inputFieldListener = new InputFieldListener();
+        alarmHour.setBackground(new Color(37, 204, 247));
         alarmHour.addMouseListener(inputFieldListener);
+        alarmHour.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.WHITE));
+        
         alarmMin = new JTextField("MM");  
+        alarmMin.setBackground(new Color(37, 204, 247));
         alarmMin.setMargin(new Insets(2, 2, 2, 2));
         alarmMin.addMouseListener(inputFieldListener);
-
+        alarmMin.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.WHITE));
+        
         //set/stop alarm button
         btn = new JButton("Set Alarm");
+        btn.setBackground(new Color(37, 204, 247));
         btn.setFocusPainted(false);
         btn.addActionListener(new ActionListener()
             {
@@ -95,6 +106,7 @@ public class AlarmClock
         panel.add(txtL);
         panel.add(alarmHour);
         panel.add(alarmMin);
+        panel.add(Box.createHorizontalStrut(10));
         panel.add(btn);
         frame.add(panel);
 
