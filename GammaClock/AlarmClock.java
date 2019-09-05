@@ -82,7 +82,7 @@ public class AlarmClock
             });
 
         //label to prompt users
-        txtL = new JLabel("Enter the time to set alarm at here");
+        txtL = new JLabel("Enter the time to set alarm at here: ");
 
         //timers for managing the current time and checking it
         time = new Timer(1000,new TimeListener());
@@ -133,15 +133,17 @@ public class AlarmClock
     }
 
     class AlarmSystem {
+        private int errLine = 0;
         private void ringAlarm()
         {
             try{
-                InputStream audioSrc = getClass().getResourceAsStream("sounds\\alarm.wav");
+                InputStream audioSrc = getClass().getResourceAsStream("sounds/alarm.wav");
                 InputStream bufferedInput = new BufferedInputStream(audioSrc);
                 AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(bufferedInput);
                 Clip clip = AudioSystem.getClip();
                 clip.open(audioInputStream);
                 clip.start();
+                
                 alarmRung = true;
             }catch(Exception e) {
                 System.out.println ("Error with playing sound.");
